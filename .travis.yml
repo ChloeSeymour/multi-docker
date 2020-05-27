@@ -10,14 +10,14 @@ script:
   - docker run -e CI=true chloe/react-test npm test
 
 after_success:
-  - docker build -t chloe/multi-client ./client
-  - docker build -t chloe/multi-nginx ./nginx
-  - docker build -t chloe/multi-server ./server
-  - docker build -t chloe/multi-worker ./worker
+  - docker build -t chloeseymour/multi-client ./client
+  - docker build -t chloeseymour/multi-nginx ./nginx
+  - docker build -t chloeseymour/multi-server ./server
+  - docker build -t chloeseymour/multi-worker ./worker
   # Log in to docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub.
-  - docker push chloe/multi-client
-  - docker push chloe/multi-nginx
-  - docker push chloe/multi-server
-  - docker push chloe/multi-worker
+  - docker push chloeseymour/multi-client
+  - docker push chloeseymour/multi-nginx
+  - docker push chloeseymour/multi-server
+  - docker push chloeseymour/multi-worker
